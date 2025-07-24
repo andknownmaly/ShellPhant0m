@@ -55,13 +55,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <option value="socat">Socat</option>
             </select>
         </label>
-        <br><br>
+        <br></br>
         <label>Ngrok TCP Address:
             <input type="text" name="target" placeholder="0.tcp.ap.ngrok.io:12345" style="width:300px;">
         </label>
         <br><br>
         <input type="submit" value="Launch Reverse Shell" style="padding:0.5em 1em;">
     </form>
+    <br></br>
     <h2>Listener Commands</h2>
 
   <div class="box">
