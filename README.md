@@ -1,7 +1,10 @@
 # ShellPhant0m
 
 **ShellPhant0m** is a lightweight PHP webshell with a built-in reverse shell launcher. It provides an interactive dropdown interface to trigger reverse connections using either Netcat or Socat, directly from the web interface.
+---
 
+<img width="770" height="431" alt="image" src="https://github.com/user-attachments/assets/833e2bcc-0ac5-4008-8010-07be8cf050d8" />
+---
 ## Features
 
 - Single-file PHP shell for remote deployment
