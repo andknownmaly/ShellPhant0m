@@ -4,7 +4,8 @@
 
 ---
 
-<img width="770" height="431" alt="image" src="https://github.com/user-attachments/assets/833e2bcc-0ac5-4008-8010-07be8cf050d8" />
+<img width="1020" height="708" alt="image" src="https://github.com/user-attachments/assets/85925335-8e1f-47ea-8bb8-0597515b541f" />
+
 
 ## Features
 
